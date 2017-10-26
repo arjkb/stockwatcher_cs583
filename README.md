@@ -1,7 +1,6 @@
-# Coffee Maker
+# StockWatcher
 
 Source files for CS 583 assignment #5 StockWatcher
-
 
 #### Setup Local Development
 
