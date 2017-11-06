@@ -29,9 +29,9 @@ public class StockWatcher implements EntryPoint {
   private FlexTable stocksFlexTable = new FlexTable();
   private HorizontalPanel addPanel = new HorizontalPanel();
   private TextBox newSymbolTextBox = new TextBox();
-  private Button addStockButton = new Button("Add");
+  Button addStockButton = new Button("Add");
   private Label lastUpdatedLabel = new Label();
-  private ArrayList<String> stocks = new ArrayList<String>();
+  ArrayList<String> stocks = new ArrayList<String>();
 
   /**
    * Entry point method.
@@ -212,5 +212,8 @@ public class StockWatcher implements EntryPoint {
 
     changeWidget.setStyleName(changeStyleName);
   }
+  
+  // functions defined for the explicit purpose of testing -- should be removed
+  
 
 }
