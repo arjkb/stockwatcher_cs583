@@ -46,21 +46,36 @@ public class StockWatcherTest extends GWTTestCase {
   
   
   public void testAddStock()	{
-		
-	  // ensure that the stock is initially empty
+	  // ensure that stocks is initially empty
 	  assertEquals(true, sw.stocks.isEmpty());
 	  
-	  // set text
-	  sw.newSymbolTextBox.setText("FOO");
+	  String validItems[] = {
+			  "A", 			// 1 character input
+			  "ABCDEFGHIJ", // 10 character input
+			  
+			  "FOO10", 	// input with number at the end
+			  "3KINGS", // input with number in the beginning
+			  "H3LLO", 	// input with number in between
+			  
+			  ".COM", 		// input with dot at start
+			  "SPACE.Z", 	// input with a dot in between
+			  "HI." 		// input with dot at the end
+			  };
 	  
-	  // add item into stockwatcher
-	  sw.addStock();
+	  for (String item: validItems)	{
+		  sw.newSymbolTextBox.setText(item);
+		  sw.addStock();
+	  }
 	  
 	  // ensure that stocks are no longer empty
 	  assertEquals(false, sw.stocks.isEmpty());
 	  
-	  // retrieve what was added. 	  
-	  assertEquals("FOO", sw.stocks.get(0));
+	  // ensure that there are expected number of items in stocks
+	  assertEquals(validItems.length, sw.stocks.size());
+	  
+	  for (int i = 0; i < validItems.length; i++)	{
+		  assertEquals(validItems[i], sw.stocks.get(i));
+	  }
   }
 
 }
