@@ -214,6 +214,14 @@ public class StockWatcher implements EntryPoint {
   }
   
   // functions defined for the explicit purpose of testing -- should be removed
+  // function to return the current stocks
+  ArrayList<String> getStocks()	{
+	  return stocks;
+  }
   
-
+  // function to return stock add button
+  Button getStockAddButton()	{
+	  return addStockButton;
+  }
+  
 }
