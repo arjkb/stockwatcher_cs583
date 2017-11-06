@@ -26,7 +26,7 @@ public class StockWatcher implements EntryPoint {
 
   private static final int REFRESH_INTERVAL = 5000; // ms
   private VerticalPanel mainPanel = new VerticalPanel();
-  private FlexTable stocksFlexTable = new FlexTable();
+  FlexTable stocksFlexTable = new FlexTable();
   private HorizontalPanel addPanel = new HorizontalPanel();
   TextBox newSymbolTextBox = new TextBox();
   Button addStockButton = new Button("Add");
@@ -165,7 +165,7 @@ public class StockWatcher implements EntryPoint {
    *
    * @param prices Stock data for all rows.
    */
-  private void updateTable(StockPrice[] prices) {
+  void updateTable(StockPrice[] prices) {
     for (int i = 0; i < prices.length; i++) {
       updateTable(prices[i]);
     }
