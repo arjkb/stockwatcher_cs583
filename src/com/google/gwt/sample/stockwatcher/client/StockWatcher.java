@@ -28,7 +28,7 @@ public class StockWatcher implements EntryPoint {
   private VerticalPanel mainPanel = new VerticalPanel();
   private FlexTable stocksFlexTable = new FlexTable();
   private HorizontalPanel addPanel = new HorizontalPanel();
-  private TextBox newSymbolTextBox = new TextBox();
+  TextBox newSymbolTextBox = new TextBox();
   Button addStockButton = new Button("Add");
   private Label lastUpdatedLabel = new Label();
   ArrayList<String> stocks = new ArrayList<String>();
@@ -62,7 +62,7 @@ public class StockWatcher implements EntryPoint {
     mainPanel.add(lastUpdatedLabel);
 
     // Associate the Main panel with the HTML host page.
-    RootPanel.get("stockList").add(mainPanel);
+//    RootPanel.get("stockList").add(mainPanel);
 
     // Move cursor focus to the input box.
     newSymbolTextBox.setFocus(true);
