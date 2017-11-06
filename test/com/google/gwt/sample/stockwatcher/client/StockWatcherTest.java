@@ -74,5 +74,25 @@ public class StockWatcherTest extends GWTTestCase {
 		  assertEquals(validItems[i], sw.stocks.get(i));
 	  }
   }
+  
+  // negative test case -- Arjun Krishna Babu
+  public void testAddStock_invalidInp()	{
+	  assertEquals(true, sw.stocks.isEmpty());
+	  
+	  String invalidItems[]	=	{
+			  "ABCDEFGHIJK", // 11 character inputs
+			  "HELLO WORLD", // input with space
+			  "HI!THERE"	 // input with invalid symbol 
+	  };
+	  
+	  // attempt to add items to list
+	  for (String item:invalidItems)	{
+		  sw.newSymbolTextBox.setText(item);
+		  sw.addStock();
+	  }
+	  
+	  // ensure that stocks are still empty
+	  assertEquals(true, sw.stocks.isEmpty());
+  }
 
 }
