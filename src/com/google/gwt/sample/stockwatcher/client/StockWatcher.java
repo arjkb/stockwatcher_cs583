@@ -98,7 +98,7 @@ public class StockWatcher implements EntryPoint {
    * Add stock to FlexTable. Executed when the user clicks the addStockButton or
    * presses enter in the newSymbolTextBox.
    */
-  private void addStock() {
+  void addStock() {
     final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
     newSymbolTextBox.setFocus(true);
 
