@@ -41,7 +41,7 @@ public class StockWatcherTest extends GWTTestCase {
     assertTrue(true);
   }
   
-  
+  // positive test case -- Arjun Krishna Babu
   public void testAddStock_validInp()	{
 	  // ensure that stocks is initially empty
 	  assertEquals(true, sw.stocks.isEmpty());
