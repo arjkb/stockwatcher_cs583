@@ -1,5 +1,6 @@
 package com.google.gwt.sample.stockwatcher.client;
 
+import com.google.gwt.i18n.client.NumberFormat;
 import com.google.gwt.junit.client.GWTTestCase;
 
 /**
@@ -94,5 +95,44 @@ public class StockWatcherTest extends GWTTestCase {
 	  // ensure that stocks are still empty
 	  assertEquals(true, sw.stocks.isEmpty());
   }
-
+  
+  // positive test case -- Arjun Krishna Babu
+  public void testUpdateTable()	{
+	  
+	  // add 3 items to the stocks
+	  sw.newSymbolTextBox.setText("FOO");
+	  sw.addStock();
+	  
+	  sw.newSymbolTextBox.setText("BAR");
+	  sw.addStock();
+	  
+	  sw.newSymbolTextBox.setText("BAZ");
+	  sw.addStock();
+	  
+	  StockPrice[] stockPrices = new StockPrice[sw.stocks.size()]; 
+	  double prices[] = new double[] {100, 200, 300};
+	  double change[] = new double[] {10,25,60};
+	  
+	  for(int i = 0; i < stockPrices.length; i++) {
+		  stockPrices[i] = new StockPrice(sw.stocks.get(i), prices[i], change[i]);		  
+	  }
+	  
+	  // update table
+	  sw.updateTable(stockPrices);
+	  
+	  int row = sw.stocks.indexOf("FOO") + 1;
+	  
+	  // now examine the table
+	  assertEquals("FOO", sw.stocksFlexTable.getText(row, 0));
+	  assertEquals("BAR", sw.stocksFlexTable.getText(row + 1, 0));
+	  assertEquals("BAZ", sw.stocksFlexTable.getText(row + 2, 0));
+	  
+	  assertEquals("100.00", sw.stocksFlexTable.getText(row, 1));
+	  assertEquals("200.00", sw.stocksFlexTable.getText(row + 1, 1));
+	  assertEquals("300.00", sw.stocksFlexTable.getText(row + 2, 1));
+	  
+	  assertEquals("+10.00 (+10.00%)", sw.stocksFlexTable.getText(row, 2));
+	  assertEquals("+25.00 (+12.50%)", sw.stocksFlexTable.getText(row + 1, 2));
+	  assertEquals("+60.00 (+20.00%)", sw.stocksFlexTable.getText(row + 2, 2));
+  }
 }
