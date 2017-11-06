@@ -1,9 +1,6 @@
 package com.google.gwt.sample.stockwatcher.client;
 
-import java.util.ArrayList;
-
 import com.google.gwt.junit.client.GWTTestCase;
-import com.google.gwt.user.client.ui.Button;
 
 /**
  * GWT JUnit tests must extend GWTTestCase.
