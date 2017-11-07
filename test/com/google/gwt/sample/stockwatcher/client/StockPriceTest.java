@@ -13,5 +13,14 @@ public class StockPriceTest extends GWTTestCase {
 	public void testSimple()	{
 		assertTrue(true);
 	}
+	
+	// positive test case -- Arjun Krishna Babu
+	public void testConstructor()	{
+		StockPrice sp = new StockPrice("foo",10.0,2.0);
+		
+		assertEquals("foo", sp.getSymbol());
+		assertEquals(10.0, sp.getPrice(), 0);
+		assertEquals(2.0, sp.getChange(), 0);
+	}
 
 }
