@@ -10,10 +10,6 @@ public class StockPriceTest extends GWTTestCase {
 		return "com.google.gwt.sample.stockwatcher.StockWatcher";
 	}
 	
-	public void testSimple()	{
-		assertTrue(true);
-	}
-	
 	// positive test case -- Arjun Krishna Babu
 	public void testConstructor()	{
 		StockPrice sp = new StockPrice("foo",10.0,2.0);
