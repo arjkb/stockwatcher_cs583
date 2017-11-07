@@ -111,7 +111,7 @@ public class StockWatcherTest extends GWTTestCase {
 	  
 	  StockPrice[] stockPrices = new StockPrice[sw.stocks.size()]; 
 	  double prices[] = new double[] {100, 200, 300};
-	  double change[] = new double[] {10,25,60};
+	  double change[] = new double[] {10,0,-60};
 	  
 	  for(int i = 0; i < stockPrices.length; i++) {
 		  stockPrices[i] = new StockPrice(sw.stocks.get(i), prices[i], change[i]);		  
@@ -132,7 +132,7 @@ public class StockWatcherTest extends GWTTestCase {
 	  assertEquals("300.00", sw.stocksFlexTable.getText(row + 2, 1));
 	  
 	  assertEquals("+10.00 (+10.00%)", sw.stocksFlexTable.getText(row, 2));
-	  assertEquals("+25.00 (+12.50%)", sw.stocksFlexTable.getText(row + 1, 2));
-	  assertEquals("+60.00 (+20.00%)", sw.stocksFlexTable.getText(row + 2, 2));
+	  assertEquals("+0.00 (+0.00%)", sw.stocksFlexTable.getText(row + 1, 2));
+	  assertEquals("-60.00 (-20.00%)", sw.stocksFlexTable.getText(row + 2, 2));
   }
 }
