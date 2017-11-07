@@ -39,5 +39,18 @@ public class StockPriceTest extends GWTTestCase {
 		sp.setChange(-5.0);
 		assertEquals(-50.0, sp.getChangePercent(), 0);
 	}
+	
+	// positive test case -- Arjun Krishna Babu
+	public void testGetterSetter()	{
+		StockPrice sp = new StockPrice();
+		
+		sp.setSymbol("foo");
+		sp.setPrice(123.4);
+		sp.setChange(5.6);
+		
+		assertEquals("foo", sp.getSymbol());
+		assertEquals(123.4, sp.getPrice(), 0);
+		assertEquals(5.6, sp.getChange(), 0);
+	}
 
 }
