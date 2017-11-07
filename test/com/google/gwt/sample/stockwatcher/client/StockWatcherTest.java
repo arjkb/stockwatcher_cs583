@@ -34,13 +34,6 @@ public class StockWatcherTest extends GWTTestCase {
 		
 		sw = null;
 	}
-
-  /**
-   * Add as many tests as you like.
-   */
-  public void testSimple() {
-    assertTrue(true);
-  }
   
   // positive test case -- Arjun Krishna Babu
   public void testAddStock_validInp()	{
