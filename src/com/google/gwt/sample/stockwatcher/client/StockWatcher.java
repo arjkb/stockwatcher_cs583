@@ -102,8 +102,8 @@ public class StockWatcher implements EntryPoint {
     final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
     newSymbolTextBox.setFocus(true);
 
-    // Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
-    if (!symbol.matches("^[0-9a-zA-Z\\.]{1,10}$")) {
+    // Stock code must be between 1 and 5 chars that are numbers, letters, or dots.
+    if (!symbol.matches("^[0-9a-zA-Z\\.]{1,5}$")) {
       Window.alert("'" + symbol + "' is not a valid symbol.");
       newSymbolTextBox.selectAll();
       return;
