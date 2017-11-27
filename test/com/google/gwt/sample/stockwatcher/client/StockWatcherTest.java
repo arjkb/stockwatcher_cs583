@@ -41,16 +41,16 @@ public class StockWatcherTest extends GWTTestCase {
 	  assertEquals(true, sw.stocks.isEmpty());
 	  
 	  String validItems[] = {
-			  "A", 			// 1 character input
-			  "ABCDEFGHIJ", // 10 character input
+			  "A", 		// 1 character input
+			  "ABCDE", 	// 5 character input
 			  
 			  "FOO10", 	// input with number at the end
-			  "3KINGS", // input with number in the beginning
+			  "3KING", 	// input with number in the beginning
 			  "H3LLO", 	// input with number in between
 			  
-			  ".COM", 		// input with dot at start
-			  "SPACE.Z", 	// input with a dot in between
-			  "HI." 		// input with dot at the end
+			  ".COM", 	// input with dot at start
+			  "SP.Z", 	// input with a dot in between
+			  "HI." 	// input with dot at the end
 			  };
 	  
 	  for (String item: validItems)	{
