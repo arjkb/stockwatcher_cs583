@@ -26,12 +26,12 @@ public class StockWatcher implements EntryPoint {
 
   private static final int REFRESH_INTERVAL = 5000; // ms
   private VerticalPanel mainPanel = new VerticalPanel();
-  private FlexTable stocksFlexTable = new FlexTable();
+  FlexTable stocksFlexTable = new FlexTable();
   private HorizontalPanel addPanel = new HorizontalPanel();
-  private TextBox newSymbolTextBox = new TextBox();
-  private Button addStockButton = new Button("Add");
+  TextBox newSymbolTextBox = new TextBox();
+  Button addStockButton = new Button("Add");
   private Label lastUpdatedLabel = new Label();
-  private ArrayList<String> stocks = new ArrayList<String>();
+  ArrayList<String> stocks = new ArrayList<String>();
 
   /**
    * Entry point method.
@@ -62,7 +62,7 @@ public class StockWatcher implements EntryPoint {
     mainPanel.add(lastUpdatedLabel);
 
     // Associate the Main panel with the HTML host page.
-    RootPanel.get("stockList").add(mainPanel);
+//    RootPanel.get("stockList").add(mainPanel);
 
     // Move cursor focus to the input box.
     newSymbolTextBox.setFocus(true);
@@ -98,12 +98,12 @@ public class StockWatcher implements EntryPoint {
    * Add stock to FlexTable. Executed when the user clicks the addStockButton or
    * presses enter in the newSymbolTextBox.
    */
-  private void addStock() {
+  void addStock() {
     final String symbol = newSymbolTextBox.getText().toUpperCase().trim();
     newSymbolTextBox.setFocus(true);
 
-    // Stock code must be between 1 and 10 chars that are numbers, letters, or dots.
-    if (!symbol.matches("^[0-9a-zA-Z\\.]{1,10}$")) {
+    // Stock code must be between 1 and 5 chars that are numbers, letters, or dots.
+    if (!symbol.matches("^[0-9a-zA-Z\\.]{1,5}$")) {
       Window.alert("'" + symbol + "' is not a valid symbol.");
       newSymbolTextBox.selectAll();
       return;
@@ -165,7 +165,7 @@ public class StockWatcher implements EntryPoint {
    *
    * @param prices Stock data for all rows.
    */
-  private void updateTable(StockPrice[] prices) {
+  void updateTable(StockPrice[] prices) {
     for (int i = 0; i < prices.length; i++) {
       updateTable(prices[i]);
     }
@@ -212,5 +212,16 @@ public class StockWatcher implements EntryPoint {
 
     changeWidget.setStyleName(changeStyleName);
   }
-
+  
+  // functions defined for the explicit purpose of testing -- should be removed
+  // function to return the current stocks
+  ArrayList<String> getStocks()	{
+	  return stocks;
+  }
+  
+  // function to return stock add button
+  Button getStockAddButton()	{
+	  return addStockButton;
+  }
+  
 }
